@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>SMS SPAM DETECTOR</title>
+		<script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+        <style>
+            .container{
+                padding: 30px;
+                position: relative;
+                background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+                background-size: 500% 500%;
+                animation: change-gradient 10s ease-in-out infinite;
+            }
+            @keyframes change-gradient {
+                0%{
+                    background-position: 0 50%;
+                }
+                50%{
+                    background-position: 100% 50%;
+                }
+                100%{
+                    background-position: 0 50%;
+                }
+            }
+            /* Contact */
+            .contact-icon{
+                color: #000000;
+                padding: 7px;
+				font-size: 30px;
+            }
+
+            
+            /* Footer */
+            .footer{
+                flex-shrink: 0;
+                position: relative;
+                padding: 20px;
+                background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+                background-size: 500% 500%;
+                animation: change-gradient 10s ease-in-out infinite;
+            }
+
+            .footer-description{
+                color: #000000;
+                margin: 0;
+                font-size: 20px;
+                
+            }
+
+
+			.jpg{
+				width: 22%;
+			}
+
+			.jpg1{
+				width: 13%;
+					margin: 10px 0;
+			}
+        </style>
+	</head>
+
+	<body>
+
+		<!-- Website Title -->
+		
+		<div class="container">
+    		<h1 class='container-heading'><span>SPAM DETECTION</h1>
+    	</div>
+		<br><br>
+		<div class="result-container">
+			<h1 class='container-heading'><big><center><span>RESULT</center></big></h1>
+	        	<div class='description'>
+				<p><center>Let's see whether the message is a Spam or Not</center></p>
+			</div>
+		</div>
+        
+		<!-- Result -->
+		<center>
+		<div class="results">
+			{% if prediction==0 %}
+				<h2>Prediction: <span class='danger'>Gotcha! This message is a SPAM</span></h2>
+				<img class="jpg" src="{{url_for('static', filename='spam.jpg')}}" >
+			{% elif prediction==1 %}
+				<h2>Prediction: <span class='safe'>Great! This message is NOT A SPAM</span></h2>
+				<img class="jpg1" src="{{url_for('static', filename='not_spam.jpg')}}" >
+			{% endif %}
+		</div>
+	    </center>
+
+		<br><br><br><br><br><br><br><br><br><br>
+
+		 	<!-- Footer -->
+			 <div class='footer'>
+				<div class="contact">
+					<a target="_blank" href="https://github.com/ananye15"><i class="fab fa-github fa-lg contact-icon"></i></a>
+				</div>
+				<p class='footer-description'>© Ananye Gupta</p>
+				</div>  
+		
+
+    </body>
+</html>
